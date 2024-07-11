@@ -10,12 +10,15 @@ import RegistroScreen from '../screens/RegistroScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import MascotaScreen from '../screens/MascotaScreen';
 import ListaMascotaScreen from '../screens/ListaMascotaScreen';
+import CamaraScree from '../screens/CamaraScree';
+import GaleriaScreen from '../screens/GaleriaScreen';
+import MapaScreen from '../screens/MapaScreen';
 
 const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown:false}}>
+    <Stack.Navigator screenOptions={{ headerShown:false}} initialRouteName='Drawer'>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Registro" component={RegistroScreen} />
       <Stack.Screen name="Drawer" component={MyDrawer} />
@@ -27,8 +30,11 @@ const Drawer = createDrawerNavigator();
 
 function MyDrawer() {
   return (
-    <Drawer.Navigator >
+    <Drawer.Navigator initialRouteName='Mapa'>
         <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+        <Drawer.Screen name='Cámara' component={CamaraScree}/>
+        <Drawer.Screen name='Galeria' component={GaleriaScreen}/>
+        <Drawer.Screen name='Mapa' component={MapaScreen}/>
         <Drawer.Screen name='Mascota' component={MyTops}/>
     </Drawer.Navigator>
   );
